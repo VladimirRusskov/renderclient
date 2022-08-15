@@ -18,9 +18,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     @Override
     public List<ApplicationDTO> getApplications() {
-//        ResponseEntity<ApplicationDTOList> exchange = restTemplate.exchange(APPLICATION_LIST, HttpMethod.GET, null, ApplicationDTOList.class);
         ApplicationDTOList list = restTemplate.getForObject(APPLICATION_LIST, ApplicationDTOList.class);
         return list != null ? list.getApplications() : Collections.emptyList();
     }
-
 }

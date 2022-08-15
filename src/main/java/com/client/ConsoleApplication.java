@@ -74,10 +74,10 @@ public class ConsoleApplication {
                                 System.out.println(applications);
                                 String appRequest = request("Choose application id:");
                                 TaskDTO task = taskService.addTask(Long.valueOf(appRequest));
-                                if (task != null) {
-                                    System.out.println("Task created successfully. ID = " + task.getId() + ". Status = " + task.getStatus());
-                                } else {
+                                if (task == null || task.getId() == null) {
                                     System.out.println("Task not created, try again.");
+                                } else {
+                                    System.out.println("Task created successfully. ID = " + task.getId() + ". Status = " + task.getStatus());
                                 }
                             }
                         } else if (personalChoice == 2) {
